@@ -1,0 +1,20 @@
+{% for patient in patients %}
+<div class="roomListRoom">
+    <div class="roomListRoom__header">
+      <a href="{% url 'user-profile' patient.doctor.id %}" class="roomListRoom__author">
+        <span>@dr{{patient.doctor.username}}</span>
+      </a>
+      <div class="roomListRoom__actions">
+      </div>
+    </div>
+    <div class="roomListRoom__content">
+      <a href="{% url 'patient' patient.id%}">{{patient.working_diagnosis}}</a>
+      <p>
+        {{patient.summary}}
+      </p>
+    </div>
+    <div class="roomListRoom__meta">
+      <p class="roomListRoom__topic">{{patient.doctor.level}}</p>
+    </div>
+  </div>
+  {% endfor %}

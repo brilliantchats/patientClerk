@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to permanently delete patient record?</p>
+    <a href="{% url 'home' %}">Back</a>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

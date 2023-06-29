@@ -1,0 +1,35 @@
+{% extends 'main.html'%}
+{% block content %}
+<style>
+    .patient-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+    .patient-detail {
+        padding-top: 20px;
+    }
+</style>
+<div class="patient-container">
+    <div>
+        {% include 'patientClerk/phy_component.html'%}
+    </div>
+    <div>
+        <h1 style="font-size: 1.5em;">Patient Detail</h1>
+        <div class="patient-detail">
+            {% if patient %}
+            <h3>Presenting Complaints</h3>
+            <p>{{patient.presenting_complaint}}</p>
+            <h3>General Examination</h3>
+            <p>{{patient.general_exam}}</p>
+            <h3>Summary</h3>
+            <p>{{patient.summary}}</p>
+            <h3>Working Diagnosis</h3>
+            <p>{{patient.working_diagnosis}}</p>
+            <h3>Management</h3>
+            <p>{{patient.management}}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

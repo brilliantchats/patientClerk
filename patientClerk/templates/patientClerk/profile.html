@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% block content%}
+  <main class="profile-page layout layout--3">
+    <div class="container">
+      <!-- Physician Start -->
+      {% include 'patientClerk/phy_component.html' %}
+      <!-- Physician End -->
+
+      <!-- Room List Start -->
+      <div class="roomList">
+        <div class="profile">
+          <div class="profile__info">
+            <h3>Dr {{doctor.first_name|title}} {{doctor.last_name|title}}</h3>
+            <p>@{{doctor.username}}</p>
+            {% if request.user == doctor %}
+            <a href="{% url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
+            {% endif %}
+          </div>
+          <div class="profile__about">
+            <h3>About</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo tenetur
+              facilis sunt nemo debitis quisquam hic atque aut? Ducimus alias placeat optio
+              accusamus repudiandae quis ab ex exercitationem rem?
+            </p>
+          </div>
+        </div>
+
+        <div class="roomList__header">
+          <div>
+            <h2>Dr {{doctor.username}}'s Patients</a>
+            </h2>
+          </div>
+        </div>
+
+        {% include 'patientClerk/condition_component.html' %}
+      </div>
+      <!-- Room List End -->
+
+      <!-- Doctors Start -->
+      {% include 'patientClerk/doctor.html'%}
+      <!-- Doctors End -->
+    </div>
+  </main>
+{% endblock %}

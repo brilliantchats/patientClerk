@@ -1,0 +1,16 @@
+<div class="topics">
+    <div class="topics__header">
+      <h2>Physician</h2>
+    </div>
+    <ul class="topics__list">
+      <li>
+        <a href="{% url 'home' %}" class="active">All</a>
+      </li>
+      {% for level in levels %}
+      <li>
+        <a href="{% url 'home' %}?q={{level.0}}">{{level.1}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+   
+  </div>
